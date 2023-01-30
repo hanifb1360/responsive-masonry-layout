@@ -15,5 +15,5 @@ class MasonryLayout extends HTMLElement {
     }
   }
   
-  customElements.define('my-component', MasonryLayout);
+  customElements.define('masonry-layout', MasonryLayout);
   
