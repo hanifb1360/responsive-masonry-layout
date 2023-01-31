@@ -1,19 +1,89 @@
 class MasonryLayout extends HTMLElement {
-    constructor() {
-      super();
-      const shadow = this.attachShadow({ mode: 'open' });
-      const template = document.createElement('template');
-      template.innerHTML = `
+  constructor() {
+    super();
+
+    this.attachShadow({ mode: "open" });
+
+    this.shadowRoot.innerHTML = `
         <style>
-          p {
-            color: red;
+          .grid {
+            position: relative;
+            max-width: 100%;
+            height: 100%;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px));
+            grid-template-rows: minmax(100px, auto);
+            margin: 40px;
+            grid-auto-flow: dense;
+            grid-gap: 10px;
           }
+
+          .grid .grid-item:hover {
+            background: #1ebae9;
+        }
+        
+          
+          .grid-item {
+            background: #333;
+            padding: 20px;
+            display: grid;
+            font-size: 20px;
+            place-items: center;
+            text-align: center;
+            color: #fff;
+            transition: 0.5s;
+          }
+
+          #grid-item-1 {
+            grid-column: span 2;
+            grid-row: span 1;
+        }
+        #grid-item-2 {
+            grid-column: span 1;
+            grid-row: span 2;
+        }
+        #grid-item-4 {
+            grid-column: span 1;
+            grid-row: span 2;
+        }
+        #grid-item-5 {
+            grid-column: span 3;
+            grid-row: span 1;
+        }
         </style>
-        <p>Hello World!</p>
+        <div class="grid">
+        
+        <div class="grid-item" id="grid-item-1">
+        <p><slot name="desc"/></p>
+        </div>
+
+        <div class="grid-item" id="grid-item-2">
+        <p><slot name="desc"/></p>
+        </div>
+
+        <div class="grid-item" id="grid-item-3">
+        <p><slot name="desc"/></p>
+        </div>
+
+        <div class="grid-item" id="grid-item-4">
+        <p><slot name="desc"/></p>
+        </div>
+
+        <div class="grid-item" id="grid-item-5">
+        <p><slot name="desc"/></p>
+        </div>
+
+        <div class="grid-item" id="grid-item-6">
+        <p><slot name="desc"/></p>
+        </div>
+
+        <div class="grid-item" id="grid-item-7">
+        <p><slot name="desc"/></p>
+        </div>
+
+        </div>
       `;
-      shadow.appendChild(template.content.cloneNode(true));
-    }
   }
-  
-  customElements.define('masonry-layout', MasonryLayout);
-  
+}
+
+customElements.define("masonry-layout", MasonryLayout);
