@@ -9,11 +9,11 @@ class MasonryLayout extends HTMLElement {
           .grid {
             position: relative;
             max-width: 100%;
-            height: 100%;
+            height: 100vh;
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px));
             grid-template-rows: minmax(100px, auto);
-            margin: 40px;
+            margin:  0 40px;
             grid-auto-flow: dense;
             grid-gap: 10px;
           }
