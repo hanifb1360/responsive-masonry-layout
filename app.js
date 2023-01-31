@@ -50,6 +50,18 @@ class MasonryLayout extends HTMLElement {
             grid-column: span 3;
             grid-row: span 1;
         }
+        
+        @media (max-width: 650px) {
+          .grid {
+            grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
+            grid-template-rows: minmax(auto, auto);
+          }
+          .grid .grid-item {
+            grid-column: unset !important;
+            grid-row: unset !important;
+          }
+        }
+
         </style>
         <div class="grid">
         
